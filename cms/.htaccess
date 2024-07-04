@@ -11,26 +11,6 @@ DirectoryIndex index.php
     RewriteRule ^news/([^/]+)$ index.php?news=$1 [QSA,L]
     RewriteRule ^nc/([^/]+)$ index.php?news-category=$1 [QSA,L]
 
-    # ЧПУ для товаров
-    RewriteRule ^products/?$ index.php?products [QSA,L]
-    RewriteRule ^products/([^/]+)$ index.php?products=$1 [QSA,L]
-    RewriteRule ^pc/([^/]+)$ index.php?products-category=$1 [QSA,L]
-
-    # ЧПУ для фильмов
-    RewriteRule ^movies/?$ index.php?movies [QSA,L]
-    RewriteRule ^movies/([^/]+)$ index.php?movies=$1 [QSA,L]
-    RewriteRule ^mc/([^/]+)$ index.php?movies-category=$1 [QSA,L]
-
-    # ЧПУ для объявлений
-    RewriteRule ^ads/?$ index.php?ads [QSA,L]
-    RewriteRule ^ads/([^/]+)$ index.php?ads=$1 [QSA,L]
-    RewriteRule ^ac/([^/]+)$ index.php?ads-category=$1 [QSA,L]
-
-    # ЧПУ для файлов
-    RewriteRule ^files/?$ index.php?files [QSA,L]
-    RewriteRule ^files/([^/]+)$ index.php?files=$1 [QSA,L]
-    RewriteRule ^fc/([^/]+)$ index.php?files-category=$1 [QSA,L]
-
     RewriteRule ^profile/?$ index.php?profile [QSA,L]
     
     # Проверка наличия файла или директории перед применением правила 404

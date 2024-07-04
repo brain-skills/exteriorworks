@@ -76,11 +76,6 @@
     // Передача корневого адреса в Smarty
     $smarty->assign('root_url', $root_url);
     
-    // Получаем текущий URL запроса
-    $currentDir = $_SERVER['REQUEST_URI'];
-    $currentDir = strtok($currentDir, '?');
-    $smarty->assign('currentDir', $currentDir);
-    
     require_once(ENGINE_DIR . '/data/config.php');
     // Определение языка в зависимости от конфигурации
     $langValue = $config['cms_lang'];
@@ -92,9 +87,6 @@
             break;
         case 'English':
             $langFile = ENGINE_DIR . '/lang/english/admin.lng';
-            break;
-        case 'ქართული':
-            $langFile = ENGINE_DIR . '/lang/georgian/admin.lng';
             break;
         default:
             $langFile = ENGINE_DIR . '/lang/english/admin.lng';
@@ -114,25 +106,9 @@
             // Обработка редактирования страницы
             include("system/modules/page_edit.php");
             break;
-        case 'ads_edit':
-            // Обработка редактирования страницы
-            include("system/modules/ads_edit.php");
-            break;
-        case 'files_edit':
-            // Обработка редактирования страницы
-            include("system/modules/files_edit.php");
-            break;
-        case 'movies_edit':
-            // Обработка редактирования страницы
-            include("system/modules/movies_edit.php");
-            break;
         case 'news_edit':
             // Обработка редактирования страницы
             include("system/modules/news_edit.php");
-            break;
-        case 'products_edit':
-            // Обработка редактирования страницы
-            include("system/modules/products_edit.php");
             break;
         default:
             // Обработка других действий, если необходимо
@@ -141,6 +117,10 @@
 
     // Импортируем глобальный функционал для всех разделов админ панели
     require_once(SYSTEM_DIR . '/general.php');
+    
+    echo '<pre>';
+    var_dump($_POST);
+    echo '</pre>';
     
     // Подключение общего шаблона
     $smarty->assign($config);
