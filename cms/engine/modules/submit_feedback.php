@@ -37,13 +37,14 @@
 
         $name = $_POST['name'];
         $email = $_POST['email'];
+        $phone = $_POST['phone'];
         $subject = $_POST['subject'];
         $ip = $externalIp;
         $city = $location['city'];
         $message_content = $_POST['message'];
 
         // Запись данных в таблицу feedback_orders
-        $insert_feedback_orders = "INSERT INTO feedback_orders (name, email, subject, ip, city, message) VALUES ('$name', '$email', '$subject', '$ip', '$city', '$message_content')";
+        $insert_feedback_orders = "INSERT INTO feedback_orders (name, email, phone, subject, ip, city, message) VALUES ('$name', '$email', '$phone', '$subject', '$ip', '$city', '$message_content')";
 
         // Выполнение запроса для записи данных в таблицу feedback_orders
         $result = $db_connect->query($insert_feedback_orders);
@@ -55,7 +56,7 @@
         $headers = "From: $email";
     
         if (mail($to, $subject_mail, $body, $headers)) {
-            $message = "Сообщение отправлено и записано в базу данных.";
+            $message = "Thank you for your request!<br>We appreciate your interest in our services.";
             echo '
                 <div class="fullscreen-box" id="fullScreenBox">
                     <div class="alertnotify" id="alertNotify">

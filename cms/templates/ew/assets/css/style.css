@@ -1,45 +1,3 @@
-/*
-  Theme Name: Roofx - Roofing Services HTML Template
-  Support: themegenix@gmail.com
-  Description: Roofx - Roofing Services HTML Template.
-  Version: 1.0
-*/
-
-/* CSS Index
-============================
-01. Variable CSS
-02. Button style
-03. Header
-04. Mobile Menu
-05. Banner
-06. Breadcrumb
-07. Slider
-08. Brand
-09. Features
-10. About
-11. Services
-12. Support
-13. Project
-14. Appointment
-15. Team
-16. Engineer
-17. Work
-18. History
-19. Counter
-20. Testimonial
-21. Faq
-22. Blog
-23. Pagination
-24. Newsletter
-25. Contact
-26. Error
-27. Footer
-28. Preloader
-============================
-*/
-
-
-
 /*=============================
 	1. Google Fonts
 ===============================*/
@@ -5620,3 +5578,7 @@ label {
 .sbg2{background-image: url(../../assets/img/services/services_item02.jpg);}
 .sbg3{background-image: url(../../assets/img/services/services_item03.jpg);}
 .sbg4{background-image: url(../../assets/img/services/services_item04.jpg);}
+
+.form-control{
+	padding: 0.93rem .75rem !important;
+}

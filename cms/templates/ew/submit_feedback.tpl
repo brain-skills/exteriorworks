@@ -15,12 +15,12 @@
                 <input name="phone" type="text" placeholder="Phone*">
             </div>
         </div>
-    </div>
-    <div class="form-grp">
-        <select class="form-select array-select form-control" name="subject">
-            <option value="Free Estimate" selected>Free Estimate</option>
-            <option value="Other question">Other question</option>
-        </select>
+        <div class="col-md-6">
+            <select class="form-control" name="subject">
+                <option value="Free Estimate" selected>Free Estimate</option>
+                <option value="Other question">Other question</option>
+            </select>
+        </div>
     </div>
     <div class="form-grp">
         <textarea id="message" placeholder="Your Message here"></textarea>
