@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-grp">
-                <input name="email" type="email" placeholder="Email*">
+                <input name="email" type="text" placeholder="Email*">
             </div>
         </div>
         <div class="col-md-6">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="form-grp">
-        <textarea id="message" placeholder="Your Message here"></textarea>
+        <textarea name="message" placeholder="Your Message here"></textarea>
     </div>
-    <button class="btn" type="submit" name="submit_feedback">Send Message</button>
+    <button class="btn" type="submit" name="submit_feedback">Send request</button>
 </form>

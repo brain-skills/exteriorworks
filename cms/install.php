@@ -69,6 +69,7 @@
 			`id` INT(11) NOT NULL AUTO_INCREMENT,
 			`name` VARCHAR(255) NOT NULL,
 			`email` VARCHAR(255) NOT NULL,
+			`phone` VARCHAR(255) NOT NULL,
 			`subject` VARCHAR(255) DEFAULT NULL,
 			`message` TEXT NOT NULL,
 			`ip` VARCHAR(45) NOT NULL,
