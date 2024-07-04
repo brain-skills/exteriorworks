@@ -1,71 +1,45 @@
 <head>
-    <title>{$title}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>{$title}</title>
     {$charset}
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="{$generator}">
     <meta name="keywords" content="{$keywords}">
     <meta name="description" content="{$description}">
-	<!--[ Favicon]-->
-	<link rel="apple-touch-icon" sizes="180x180" href="{$stheme}/images/favicons/apple-touch-icon.png">
-	<link rel="icon" href="{$stheme}/images/favicons/64.png" sizes="64x64" type="image/png">
-	<link rel="icon" href="{$stheme}/images/favicons/32.png" sizes="32x32" type="image/png">
-	<link rel="icon" type="image/x-icon" href="{$stheme}/images/favicons/favicon.ico">
-	<!--[ Template main css file ]-->
-	<link rel="stylesheet" href="{$stheme}/css/bootstrap.css">
-	<link rel="stylesheet" href="{$stheme}/css/style.css">
-	<link rel="stylesheet" href="{$stheme}/css/font-awesome.css">
-	<!-- Template page js -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="{$stheme}/js/bootstrap.bundle.min.js"></script>
-	<script src="{$stheme}/js/theme.js"></script>
-	<script src="{$stheme}/js/main.js"></script>
-	{if isset($homepage)}
-		<link rel="stylesheet" href="{$stheme}/bundles/swiper/swiper.css">
-		<link rel="stylesheet" href="{$stheme}/bundles/swiper/swiper-bundle.css">
-		<style>
-			.swiper-button-prev, .swiper-button-next {
-				margin-top: 10px;
-				position: absolute;
-				z-index: 15;
-			}
-			.swiper-button-prev svg, .swiper-button-next svg {
-				width: 10px;
-			}
-			.manage-buttons{
-				position: relative !important;
-			}
-		</style>
-		<script src="{$stheme}/bundles/swiper/swiper.js"></script>
-		<script src="{$stheme}/bundles/swiper/swiper-bundle.js"></script>
-		<script src="{$stheme}/bundles/swiper/swiper-element.js"></script>
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				var mySwiper = new Swiper('.swiper-container', {
-					slidesPerView: 1,
-					spaceBetween: 10,
-					loop: false,
-					loopedSlides: 2,
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					},
-					pagination: {
-						el: '.swiper-pagination',
-						clickable: true,
-					},
-					breakpoints: {
-						768: {
-							slidesPerView: 2,
-							spaceBetween: 10,
-						},
-						576: {
-							slidesPerView: 1,
-							spaceBetween: 10,
-						},
-					},
-				});
-			});
-		</script>
-	{/if}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Exterior Works">
+	<meta property="og:description" content="Improve Exterior - High work quality is guaranteed">
+	<meta property="og:image" content="{$theme}/assets/img/preview.jpg">
+	<meta property="og:url" content="https://exterior.works/">
+	<meta property="og:type" content="website">
+
+	<!-- Основная иконка сайта -->
+	<link rel="shortcut icon" type="image/x-icon" href="{$theme}/assets/img/favicon/favicon.png">
+
+	<!-- Иконки для устройств Apple -->
+	<link rel="apple-touch-icon" sizes="256x256" href="{$theme}/assets/img/favicon/ios/256x256.png">
+	<link rel="apple-touch-icon" sizes="128x128" href="{$theme}/assets/img/favicon/ios/128x128.png">
+	<link rel="apple-touch-icon" sizes="64x64" href="{$theme}/assets/img/favicon/ios/64x64.png">
+	<link rel="apple-touch-icon" sizes="32x32" href="{$theme}/assets/img/favicon/ios/32x32.png">
+
+	<!-- Иконки для Android -->
+	<link rel="icon" type="image/png" sizes="256x256" href="{$theme}/assets/img/favicon/android/256x256.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="{$theme}/assets/img/favicon/android/128x128.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="{$theme}/assets/img/favicon/android/64x64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{$theme}/assets/img/favicon/android/32x32.png">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{$theme}/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/animate.min.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/odometer.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/slick.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/tg-cursor.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/default.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/jarallax.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/style.css">
+	<link rel="stylesheet" href="{$theme}/assets/css/responsive.css">
 </head>
