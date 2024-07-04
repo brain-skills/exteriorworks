@@ -43,6 +43,19 @@
     $user_authenticated = isset($_SESSION['user_id']) || isset($_COOKIE['user_id']) || (isset($_SESSION['user_authenticated']) && $_SESSION['user_authenticated']);
     $smarty->assign('user_authenticated', $user_authenticated ?? false);
 
+    // Передача конфигурации в Smarty
+    $smarty->assign('currencies', $config['modules']['products']['currencies']);
+    $smarty->assign('selectedCurrency', $_SESSION['currency'] ?? null);
+
+    // Обработка POST-запроса при выборе валюты
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['currency'])) {
+        $selectedCurrency = $_POST['currency'];
+        // Проверьте, поддерживается ли выбранная валюта
+        if (isset($config['currencies'][$selectedCurrency])) {
+            $_SESSION['currency'] = $selectedCurrency;
+        }
+    }
+
     if (isset($_SESSION['user_email'])) {
         $query = "SELECT users.*, groups.name AS group_name FROM users LEFT JOIN `groups` ON users.group = groups.id WHERE email = ? LIMIT 1";
         $stmt = mysqli_prepare($db_connect, $query);

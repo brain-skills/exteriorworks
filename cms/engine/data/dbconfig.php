@@ -12,7 +12,7 @@
     */
 
     $dbhost = 'localhost'; // Хост
-    $dbname = 'u642471410_ew'; // Имя базы данных
-    $dbuser = 'u642471410_ew'; // Имя пользователя
+    $dbname = 'u642471410_se'; // Имя базы данных
+    $dbuser = 'u642471410_se'; // Имя пользователя
     $dbpasswd = 'My9hacklife'; // Пароль пользователя
     $db_connect = mysqli_connect($dbhost,$dbuser,$dbpasswd,$dbname);

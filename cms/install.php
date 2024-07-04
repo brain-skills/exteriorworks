@@ -19,6 +19,52 @@
 
 	// Массив с запросами на создание таблиц
 	$createTables = [
+		'CREATE TABLE IF NOT EXISTS `ads` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`autor` VARCHAR(40) DEFAULT NULL,
+			`date` DATE DEFAULT NULL,
+			`categories` VARCHAR(190) DEFAULT NULL,
+			`title` VARCHAR(255) DEFAULT NULL,
+			`image` VARCHAR(255) DEFAULT NULL,
+			`alt_name` VARCHAR(190) DEFAULT NULL,
+			`short_desc` MEDIUMTEXT DEFAULT NULL,
+			`full_desc` MEDIUMTEXT DEFAULT NULL,
+			`price` VARCHAR(50) DEFAULT NULL,
+			`authority` VARCHAR(50) DEFAULT NULL,
+			`phone` VARCHAR(255) DEFAULT NULL,
+			`email` VARCHAR(255) DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`views` INT DEFAULT 0,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `ads_categories` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`parentid` INT(11) DEFAULT NULL,
+			`position` INT(11) DEFAULT NULL,
+			`name` VARCHAR(50) DEFAULT NULL,
+			`alt_name` VARCHAR(50) DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`short_tpl` VARCHAR(40) DEFAULT NULL,
+			`full_tpl` VARCHAR(40) DEFAULT NULL,
+			`comments` TINYINT(1) DEFAULT NULL,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `ads_comments` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`user_id` INT(11) NOT NULL,
+			`entity_id` INT(11) NOT NULL,
+			`entity_type` VARCHAR(50) NOT NULL,
+			`comment_text` TEXT NOT NULL,
+			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (`id`),
+			INDEX (`user_id`),
+			INDEX (`entity_id`,`entity_type`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
 		'CREATE TABLE IF NOT EXISTS `feedback_orders` (
 			`id` INT(11) NOT NULL AUTO_INCREMENT,
 			`name` VARCHAR(255) NOT NULL,
@@ -31,6 +77,53 @@
 			PRIMARY KEY (`id`)
 		) ENGINE=INNODB DEFAULT CHARSET=utf8',
 
+		'CREATE TABLE IF NOT EXISTS `files` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`autor` VARCHAR(40) DEFAULT NULL,
+			`date` DATE DEFAULT NULL,
+			`categories` VARCHAR(190) DEFAULT NULL,
+			`title` VARCHAR(255) DEFAULT NULL,
+			`file_path` VARCHAR(255) DEFAULT NULL,
+			`image` VARCHAR(255) DEFAULT NULL,
+			`alt_name` VARCHAR(190) DEFAULT NULL,
+			`short_desc` MEDIUMTEXT DEFAULT NULL,
+			`full_desc` MEDIUMTEXT DEFAULT NULL,
+			`price` DECIMAL(10, 2) DEFAULT 0.00,
+			`version` VARCHAR(50) DEFAULT NULL,
+			`license` VARCHAR(255) DEFAULT NULL,
+			`contact_info` VARCHAR(255) DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`views` INT DEFAULT 0,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `files_categories` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`parentid` INT(11) DEFAULT NULL,
+			`position` INT(11) DEFAULT NULL,
+			`name` VARCHAR(50) DEFAULT NULL,
+			`alt_name` VARCHAR(50) DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`short_tpl` VARCHAR(40) DEFAULT NULL,
+			`full_tpl` VARCHAR(40) DEFAULT NULL,
+			`comments` TINYINT(1) DEFAULT NULL,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `files_comments` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`user_id` INT(11) NOT NULL,
+			`entity_id` INT(11) NOT NULL,
+			`entity_type` VARCHAR(50) NOT NULL,
+			`comment_text` TEXT NOT NULL,
+			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (`id`),
+			INDEX (`user_id`),
+			INDEX (`entity_id`,`entity_type`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
 		'CREATE TABLE IF NOT EXISTS `groups` (
 			`id` INT(11) NOT NULL AUTO_INCREMENT,
 			`name` VARCHAR(50) DEFAULT NULL,
@@ -41,6 +134,56 @@
 			`vote` TINYINT(1) DEFAULT NULL,
 			`download` TINYINT(1) DEFAULT NULL,
 			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `movies` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`autor` VARCHAR(40) DEFAULT NULL,
+			`date` DATE DEFAULT NULL,
+			`categories` VARCHAR(255) DEFAULT NULL,
+			`title` VARCHAR(255) DEFAULT NULL,
+			`image` VARCHAR(255) DEFAULT NULL,
+			`alt_name` VARCHAR(190) DEFAULT NULL,
+			`search_id` VARCHAR(190) DEFAULT NULL,
+			`year` VARCHAR(40) DEFAULT NULL,
+			`quality` VARCHAR(50) DEFAULT NULL,
+			`director` VARCHAR(100) DEFAULT NULL,
+			`actors` VARCHAR(255) DEFAULT NULL,
+			`short_desc` MEDIUMTEXT DEFAULT NULL,
+			`full_desc` MEDIUMTEXT DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`allow_comments` TINYINT(1) DEFAULT NULL,
+			`tags` VARCHAR(255) DEFAULT NULL,
+			`rating` TINYINT DEFAULT NULL,
+			`views` INT DEFAULT 0,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `movies_categories` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`parentid` INT(11) DEFAULT NULL,
+			`position` INT(11) DEFAULT NULL,
+			`name` VARCHAR(50) DEFAULT NULL,
+			`alt_name` VARCHAR(50) DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`short_tpl` VARCHAR(40) DEFAULT NULL,
+			`full_tpl` VARCHAR(40) DEFAULT NULL,
+			`comments` TINYINT(1) DEFAULT NULL,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `movies_comments` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`user_id` INT(11) NOT NULL,
+			`entity_id` INT(11) NOT NULL,
+			`entity_type` VARCHAR(50) NOT NULL,
+			`comment_text` TEXT NOT NULL,
+			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (`id`),
+			INDEX (`user_id`),
+			INDEX (`entity_id`,`entity_type`)
 		) ENGINE=INNODB DEFAULT CHARSET=utf8',
 
 		'CREATE TABLE IF NOT EXISTS `news` (
@@ -87,6 +230,72 @@
 			`parent_id` INT(11) DEFAULT NULL,
 			PRIMARY KEY (`id`),
 			FOREIGN KEY (`news_id`) REFERENCES `news`(`id`) ON DELETE CASCADE
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `products` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`autor` VARCHAR(40) DEFAULT NULL,
+			`date` DATE DEFAULT NULL,
+			`categories` VARCHAR(190) DEFAULT NULL,
+			`title` VARCHAR(255) DEFAULT NULL,
+			`image` VARCHAR(255) DEFAULT NULL,
+			`alt_name` VARCHAR(190) DEFAULT NULL,
+			`short_desc` MEDIUMTEXT DEFAULT NULL,
+			`full_desc` MEDIUMTEXT DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`price` DECIMAL(10, 2) NOT NULL,
+			`stock_quantity` INT NOT NULL,
+			`measure_unit` VARCHAR(50) DEFAULT NULL,
+			`brand` VARCHAR(100) DEFAULT NULL,
+			`model` VARCHAR(100) DEFAULT NULL,
+			`sku` VARCHAR(100) DEFAULT NULL,
+			`mass` DECIMAL(10, 2) DEFAULT NULL,
+			`dimensions` VARCHAR(100) DEFAULT NULL,
+			`color` VARCHAR(50) DEFAULT NULL,
+			`material` VARCHAR(100) DEFAULT NULL,
+			`warranty` VARCHAR(100) DEFAULT NULL,
+			`discount` DECIMAL(5, 2) DEFAULT NULL,
+			`promotion` VARCHAR(255) DEFAULT NULL,
+			`min_order` INT DEFAULT NULL,
+			`reviews_numb` INT DEFAULT NULL,
+			`views` INT DEFAULT 0,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `products_categories` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`parentid` INT(11) DEFAULT NULL,
+			`position` INT(11) DEFAULT NULL,
+			`name` VARCHAR(50) DEFAULT NULL,
+			`alt_name` VARCHAR(50) DEFAULT NULL,
+			`meta_desc` VARCHAR(300) DEFAULT NULL,
+			`meta_keys` TEXT DEFAULT NULL,
+			`short_tpl` VARCHAR(40) DEFAULT NULL,
+			`full_tpl` VARCHAR(40) DEFAULT NULL,
+			`reviews` TINYINT(1) DEFAULT NULL,
+			PRIMARY KEY (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE product_colors (
+			id INT AUTO_INCREMENT PRIMARY KEY,
+			product_id INT NOT NULL,
+			color_name VARCHAR(50) NOT NULL,
+			color_hex VARCHAR(7) NOT NULL,
+			image_url VARCHAR(255) NOT NULL,
+			FOREIGN KEY (product_id) REFERENCES products(id)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `products_reviews` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`user_id` INT(11) NOT NULL,
+			`entity_id` INT(11) NOT NULL,
+			`entity_type` VARCHAR(50) NOT NULL,
+			`comment_text` TEXT NOT NULL,
+			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (`id`),
+			INDEX (`user_id`),
+			INDEX (`entity_id`,`entity_type`)
 		) ENGINE=INNODB DEFAULT CHARSET=utf8',
 
 		'CREATE TABLE IF NOT EXISTS `promocodes` (
@@ -139,6 +348,17 @@
 			`products_posted` INT(11) DEFAULT 0,
 			PRIMARY KEY (`id`)
 		) ENGINE=INNODB DEFAULT CHARSET=utf8',
+
+		'CREATE TABLE IF NOT EXISTS `sales` (
+			`id` INT(11) NOT NULL AUTO_INCREMENT,
+			`product_id` INT(11) NOT NULL,
+			`user_id` INT(11) NOT NULL,
+			`quantity` INT NOT NULL,
+			`sale_date` DATE NOT NULL,
+			PRIMARY KEY (`id`),
+			FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+			FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+		) ENGINE=INNODB DEFAULT CHARSET=utf8',
 	];
 
 	// Выполняем запросы на создание таблиц
@@ -162,28 +382,11 @@
 		"INSERT INTO `groups` (`id`,`name`,`create`,`read`,`update`,`del`,`vote`,`download`) VALUES (8, 'Пользователь', 0, 1, 0, 0, 1, 1)",
 		"INSERT INTO `groups` (`id`,`name`,`create`,`read`,`update`,`del`,`vote`,`download`) VALUES (9, 'Гость', 0, 1, 0, 0, 0, 0)",
 
-		// Добавление данных в таблицу `news`
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (1, 'Admin', NOW(), 'Спорт, Гимнастика', 'Спортсменка перевернула представление о гибкости', 'uploads/images/news/2024/2/1/image.jpg', 'news-1', 'Молодая гимнастка установила новый мировой рекорд, продемонстрировав уникальную гибкость и сложные элементы в выступлении.', 'В спортивном мире произошло потрясающее событие: молодая гимнастка, Ирина Ковалева, совершила невероятное выступление, установив новый мировой рекорд. Ее гибкость и акробатические элементы поразили зрителей и судей. Ирина успешно выполнила сложнейшие трюки, поднимая планку ожиданий для будущих соревнований. Это выступление не только подняло стандарты в гимнастике, но и вдохновило многих молодых спортсменов.', '1', '1', '1', '0', '0', '0', '15', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (2, 'Admin', NOW(), 'Наука, Медицина', 'Ученые обнаружили эффективные молекулы для таргетированной терапии', 'uploads/images/news/2024/2/2/image.jpg', 'news-2', 'Исследователи совершили прорыв в области медицины, выявив молекулы, способные точечно атаковать раковые клетки без вреда для здоровых тканей.', 'Группа ученых из медицинского института объявила о важном открытии в борьбе с раком. Исследование выявило новые молекулы, специфически атакующие раковые клетки, минимизируя при этом воздействие на здоровые ткани. Этот метод таргетированной терапии обещает стать эффективным инструментом в лечении различных видов рака, предоставляя новые перспективы для пациентов и медицинского сообщества.', '1', '1', '1', '0', '0', '0', '10', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (3, 'Admin', NOW(), 'Наука, Природа', 'Открытие нового вида орхидей в джунглях Амазонии', 'uploads/images/news/2024/2/3/image.jpg', 'news-3', 'Биологи обнаружили уникальный вид орхидей в самых глухих уголках Амазонии, предоставляя новые данные о богатстве природы в этом регионе.', 'Экспедиция биологов в джунглях Амазонии привела к захватывающему открытию - новому виду орхидей. Эти красочные цветы обладают уникальными характеристиками, которые могут быть ключом к пониманию биоразнообразия этого региона. Открытие подчеркивает необходимость сохранения девственных уголков природы, так как они могут предоставить ценную информацию для науки и сохранения экосистем.', '1', '1', '1', '0', '0', '0', '20', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (4, 'Admin', NOW(), 'Культура, Этика', 'Искусство и этика в современном обществе', 'uploads/images/news/2024/2/4/image.jpg', 'news-4', 'Новая выставка в музее современного искусства затрагивает актуальные этические вопросы через художественные произведения современных художников.', 'Музей современного искусства представляет выставку, которая провоцирует обсуждение вопросов этики и искусства в современном обществе. Художники используют свои произведения, чтобы вызвать размышления о моральных дилеммах, социокультурных аспектах и месте искусства в обществе. Посетители приглашаются к активному участию в диалоге, а выставка становится платформой для обмена мнениями и поддержания дискуссий.', '1', '1', '1', '0', '0', '0', '5', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (5, 'Admin', NOW(), 'Спорт, Гимнастика', 'Команда страны завоевывает золото в групповом выступлении', 'uploads/images/news/2024/2/5/image.jpg', 'news-5', 'Спортсмены из разных регионов страны объединились, чтобы показать великолепие групповой гимнастики и завоевать золото на чемпионате.', 'На Мировом Чемпионате по гимнастике наша страна достигла великолепного успеха в групповых выступлениях. Сплоченная команда спортсменов продемонстрировала невероятную координацию и синхронность в выполнении сложных элементов гимнастики. Заслуженно завоевав золотые медали, они подняли флаг страны на высший пьедестал, покорив зрителей своим профессионализмом и эстетикой представления.', '1', '1', '1', '0', '0', '0', '50', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (6, 'Admin', NOW(), 'Наука, Природа', 'Ученые раскрывают тайны подводного мира', 'uploads/images/news/2024/2/6/image.jpg', 'news-6', 'Морские биологи обнаружили ранее неизвестный вид в глубинах океана, предоставляя новые данные о биологическом разнообразии морских экосистем.', 'Экспедиция морских биологов привела к удивительному открытию - новый вид морского существа, ранее неизвестный науке. Этот вид обладает уникальными адаптациями к жизни в глубинах океана и может предоставить ценную информацию о морской биологии и экосистемах. Открытие подчеркивает важность дальнейших исследований и сохранения морской природы.', '1', '1', '1', '0', '0', '0', '30', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (7, 'Admin', NOW(), 'Бизнес, Экономика', 'Революция в области искусственного интеллекта', 'uploads/images/news/2024/2/7/image.jpg', 'news-7', 'Стартап, специализирующийся на разработке инновационных технологий и искусственного интеллекта, привлек миллионы инвестиций от крупных фондов.', 'Обещающий стартап, фокусирующийся на разработке передовых технологий и искусственного интеллекта, объявил о успешном привлечении миллионов инвестиций от ведущих инвестиционных фондов. Эти средства будут направлены на дальнейшее развитие новаторских проектов, способных изменить парадигму в сфере технологий. Инвесторы уверены, что компания станет ключевым игроком в будущем цифрового прогресса.', '1', '1', '1', '0', '0', '0', '25', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (8, 'Admin', NOW(), 'Наука, Медицина', 'Ученые разрабатывают персонализированные генетические терапии', 'uploads/images/news/2024/2/8/image.jpg', 'news-8', 'Исследователи добились значительных успехов в создании персонализированных генетических методов лечения, открывая новые перспективы в медицине.', 'Наука в области медицины сделала новый шаг вперед с разработкой персонализированных генетических терапий. Эти методы лечения, основанные на индивидуальных характеристиках пациентов, обещают более эффективное и безопасное лечение различных болезней. Ученые надеются, что такие терапии станут стандартом в будущем, переворачивая представление о лечении и привнося новые надежды для миллионов людей.', '1', '1', '1', '0', '0', '0', '45', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (9, 'Admin', NOW(), 'Культура, Этика', 'Современные художники выражают свое видение этических ценностей', 'uploads/images/news/2024/2/9/image.jpg', 'news-9', 'В центре города стартовал фестиваль, где творцы современного искусства представляют произведения, затрагивающие вопросы нравственности.', 'Город оживает фестивалем, посвященным искусству и нравственным ценностям. Художники различных направлений представляют свои произведения, отражающие их взгляд на этические вопросы современности. Фестиваль стал площадкой для диалога и взаимодействия между искусством и этикой, позволяя зрителям глубже понять сложные аспекты современного общества.', '1', '1', '1', '0', '0', '0', '35', 0)",
-		"INSERT INTO `news` (`id`,`autor`,`date`,`categories`,`title`,`image`,`alt_name`,`short_desc`,`full_desc`,`meta_desc`,`meta_keys`,`allow_comments`,`fixed`,`allow_br`,`tags`,`rating`,`views`) VALUES (10, 'Admin', NOW(), 'Бизнес, Экономика', 'Новая эра в сфере устойчивого бизнеса', 'uploads/images/news/2024/2/10/image.jpg', 'news-10', 'Стартап, фокусирующийся на устойчивых бизнес-моделях, получил признание инвесторов, отмечая новую эру в корпоративной ответственности.', 'Новый стартап, нацеленный на развитие устойчивых бизнес-моделей, привлек внимание крупных инвесторов. Его инновационные методы управления ресурсами и стратегии устойчивости приветствуются как предвестие новой эры в корпоративной ответственности. Бизнес-сообщество надеется, что успех этого стартапа станет вдохновением для других компаний следовать путем устойчивого развития, принося пользу не только себе, но и окружающей среде.', '1', '1', '1', '0', '0', '0', '40', 0)",
-
 		// Добавление данных в таблицу `news_categories`
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (1, 0, 1, 'Наука', 'science', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (2, 0, 2, 'Спорт', 'sport', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (3, 0, 3, 'Культура', 'culture', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (4, 0, 4, 'Гимнастика', 'yoga', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (5, 0, 5, 'Этика', 'ethics', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (6, 0, 6, 'Природа', 'nature', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (7, 0, 7, 'Бизнес', 'business', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (8, 0, 8, 'Экономика', 'economy', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
-		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (9, 0, 9, 'Медицина', 'medicine', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
+		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (1, 0, 1, 'ew', 'science', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
+		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (2, 1, 2, 'Roofing', 'roofing', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
+		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (3, 1, 3, 'Siding', 'siding', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
+		"INSERT INTO `news_categories` (`id`,`parentid`,`position`,`name`,`alt_name`,`meta_desc`,`meta_keys`,`short_tpl`,`full_tpl`,`comments`) VALUES (4, 1, 4, 'Gutters', 'gutters', '', '', 'short_news.tpl', 'full_news.tpl', 1)",
 
 		// Добавление данных в таблицу `static_pages`
 		"INSERT INTO `static_pages` (`id`,`date`,`title`,`alt_name`,`full_desc`,`meta_desc`,`meta_keys`,`views`) VALUES (1, NOW(), 'Демонстрационная версия Skills.Energy', 'demonstration', 'Демонстрационная версия Skills.Energy', '', '', 0)",

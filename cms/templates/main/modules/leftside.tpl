@@ -32,6 +32,55 @@
                         </a>
                         <ul class="collapse list-unstyled" id="allSectionsBlock">
                             <li>
+                                <a href="#ads" id="adsList" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle fl2">Объявления</a>
+                                <ul class="collapse list-unstyled" id="ads">
+                                    {foreach $ads_categories as $category}
+                                        {assign var="translit_name" value=$category.name}
+                                        {foreach $config.translit_converter as $from => $to}
+                                            {assign var="translit_name" value=str_replace($from, $to, $translit_name)}
+                                        {/foreach}
+                                        {assign var="translit_name" value=str_replace(' ', '_', $translit_name)}
+                                        <li><a href="/ac/{$category.alt_name}" id="{$translit_name}">{$category.name}</a></li>
+                                    {/foreach}
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#files" id="filesList" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle fl3">Файлы</a>
+                                <ul class="collapse list-unstyled" id="files">
+                                    {foreach $files_categories as $category}
+                                        {assign var="translit_name" value=$category.name}
+                                        {foreach $config.translit_converter as $from => $to}
+                                            {assign var="translit_name" value=str_replace($from, $to, $translit_name)}
+                                        {/foreach}
+                                        {assign var="translit_name" value=str_replace(' ', '_', $translit_name)}
+                                        <li><a href="/fc/{$category.alt_name}" id="{$translit_name}">{$category.name}</a></li>
+                                    {/foreach}
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#movies" id="moviesList" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle fl4">Фильмы</a>
+                                <ul class="collapse list-unstyled" id="movies">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                        <td><a href="/mc/films">Фильмы</a></td>
+                                        <td><a href="/mc/series">Сериалы</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    {foreach $movie_categories as $category}
+                                        {if $category.id != 1 && $category.id != 15}
+                                            {assign var="translit_name" value=$category.name}
+                                            {foreach $config.translit_converter as $from => $to}
+                                                {assign var="translit_name" value=str_replace($from, $to, $translit_name)}
+                                            {/foreach}
+                                            {assign var="translit_name" value=str_replace(' ', '_', $translit_name)}
+                                            <li><a href="/mc/{$category.alt_name}" id="{$translit_name}">{$category.name}</a></li>
+                                        {/if}
+                                    {/foreach}
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="#news" id="newsList" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle fl5">Новости</a>
                                 <ul class="collapse list-unstyled" id="news">
                                     {foreach $news_categories as $category}
@@ -44,6 +93,24 @@
                                     {/foreach}
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#products" id="productsList" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle fl6">Товары</a>
+                                <ul class="collapse list-unstyled" id="products">
+                                    {foreach $products_categories as $category}
+                                        {assign var="translit_name" value=$category.name}
+                                        {foreach $config.translit_converter as $from => $to}
+                                            {assign var="translit_name" value=str_replace($from, $to, $translit_name)}
+                                        {/foreach}
+                                        {assign var="translit_name" value=str_replace(' ', '_', $translit_name)}
+                                        <li><a href="/pc/{$category.alt_name}" id="{$translit_name}">{$category.name}</a></li>
+                                    {/foreach}
+                                </ul>
+                            </li>
+                            <!-- <li><a href="#">Отзывы</a></li>
+                            <li><a href="#">Модуль сообщений</a></li>
+                            <li><a href="#">Модуль цели и задачи</a></li>
+                            <li><a href="#">Модуль успеваемости</a></li>
+                            <li><a href="#">Реферальная система</a></li> -->
                         </ul>
                     </li>
                     <li>
