@@ -139,17 +139,6 @@
 			`products_posted` INT(11) DEFAULT 0,
 			PRIMARY KEY (`id`)
 		) ENGINE=INNODB DEFAULT CHARSET=utf8',
-
-		'CREATE TABLE IF NOT EXISTS `sales` (
-			`id` INT(11) NOT NULL AUTO_INCREMENT,
-			`product_id` INT(11) NOT NULL,
-			`user_id` INT(11) NOT NULL,
-			`quantity` INT NOT NULL,
-			`sale_date` DATE NOT NULL,
-			PRIMARY KEY (`id`),
-			FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-			FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-		) ENGINE=INNODB DEFAULT CHARSET=utf8',
 	];
 
 	// Выполняем запросы на создание таблиц

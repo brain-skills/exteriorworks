@@ -50,16 +50,6 @@
 					<!--[ Start:: theme light/dark ]-->
 					{include file="./modules/theme.tpl"}
 					<li class="nav-item px-md-1">
-						<form method="post" id="currencyForm">
-							<input type="hidden" name="action" value="change_currency">
-							<select name="currency" id="currency" class="form-select array-select form-control" onchange="document.getElementById('currencyForm').submit()">
-								{foreach $currencies as $code => $rate}
-									<option value="{$code}" {if getCurrentCurrency() == $code}selected{/if}>{$code}</option>
-								{/foreach}
-							</select>
-						</form>
-					</li>
-					<li class="nav-item px-md-1">
 						<div class="vr d-none d-sm-flex h-100 mx-sm-2"></div>
 					</li>
 					<!--[ Start:: user detail ]-->
