@@ -54,7 +54,7 @@
 				<ul class="row g-3 list-unstyled li_animate">
 					<li class="col-12">
 						<a href="/" class="brand-icon text-decoration-none d-flex" title="">
-							<img src="{$stheme}/images/big-logo.svg" alt="">
+							<img src="{$theme}/assets/img/logo/logo.png" alt="">
 						</a>
 					</li>
 					<li class="col-12 mt-4">

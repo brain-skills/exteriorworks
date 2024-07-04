@@ -3,7 +3,7 @@
   'cms_installed' => true,
   'title' => 'Skills Energy',
   'stheme' => '/system/assets',
-  'theme' => '/templates/main',
+  'theme' => '/templates/ew',
   'generator' => 'Skills Energy',
   'description' => 'Skills Energy - by Mega Media Group',
   'keywords' => 'cms, php, web, javascript, github, git, photoshop, ilustrator',
