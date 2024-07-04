@@ -15,7 +15,7 @@
     require_once(ENGINE_DIR . '/data/config.php');
 
     // Укажите новый путь к tpl файлам
-    $tplDirectory = 'templates/main/';
+    $tplDirectory = 'templates/' . $config['skin'] . '/';
     $subAction = isset($_GET['sub_action']) ? $_GET['sub_action'] : '';
     if ($subAction === 'edit') {
         $tplFile = isset($_GET['tpl_file']) ? $_GET['tpl_file'] : '';

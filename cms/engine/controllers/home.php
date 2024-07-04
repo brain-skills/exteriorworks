@@ -61,7 +61,7 @@
         $smarty->assign('page_name', '
             <li class="breadcrumb-item active">Главная страница</li>
         ');
-        $smarty->assign('theme', TEMPLATES_DIR . '/main');
+        $smarty->assign('theme', TEMPLATES_DIR . '/' . $config['skin']);
         // Передаем данные в Smarty
         $smarty->assign('content', $smarty->fetch(TEMPLATES_DIR . '/' . $config['skin'] . '/home.tpl'));
         // Проверяем, выключен ли сайт
