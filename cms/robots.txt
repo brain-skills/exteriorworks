@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /ads/
+Disallow: /ac/
+Disallow: /files/
+Disallow: /fc/
+Disallow: /movies/
+Disallow: /mc/
+Disallow: /news/
+Disallow: /nc/
+Disallow: /products/
+Disallow: /pc/
+Allow: /pages/
