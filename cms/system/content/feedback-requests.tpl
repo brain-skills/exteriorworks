@@ -6,6 +6,7 @@
 				<th class="border-end">Subject</th>
 				<th class="border-end">Name</th>
 				<th class="border-end">E-mail</th>
+				<th class="border-end">Phone</th>
 				<th class="border-end">Ip</th>
 				<th class="border-end">City</th>
 				<th class="border-end">Date</th>
@@ -19,6 +20,7 @@
 					<td class="border-end">{$order.subject}</td>
 					<td class="border-end">{$order.name}</td>
 					<td class="border-end">{$order.email}</td>
+					<td class="border-end">{$order.phone}</td>
 					<td class="border-end">{$order.ip}</td>
 					<td class="border-end">{$order.city}</td>
 					<td class="border-end">{$order.created_at}</td>

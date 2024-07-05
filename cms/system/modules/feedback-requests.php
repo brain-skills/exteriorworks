@@ -27,7 +27,7 @@
     }
 
     // SQL запрос для извлечения заявок, отсортированных по дате создания (новые вверху)
-    $sql = "SELECT id, name, email, subject, message, ip, city, created_at FROM feedback_orders ORDER BY created_at DESC";
+    $sql = "SELECT id, name, email, phone, subject, message, ip, city, created_at FROM feedback_orders ORDER BY created_at DESC";
 
     $result = $db_connect->query($sql);
 
