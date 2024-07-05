@@ -18,7 +18,7 @@
     $message = '';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_feedback'])) {
-	
+        
         // Получаем максимальное значение id из таблицы товаров
         $sql = "SELECT MAX(id) AS max_id FROM feedback_orders";
         $feedback_orders_result = $db_connect->query($sql);
@@ -30,7 +30,7 @@
         } else {
             $max_id = 0;
         }
-    
+
         // Сбрасываем счетчик автоинкремента к максимальному значению id товаров
         $sql_reset_auto_increment = "ALTER TABLE feedback_orders AUTO_INCREMENT = " . ($max_id + 1);
         $db_connect->query($sql_reset_auto_increment);
@@ -48,14 +48,18 @@
 
         // Выполнение запроса для записи данных в таблицу feedback_orders
         $result = $db_connect->query($insert_feedback_orders);
-    
+
         // Отправка письма
         $to = $config['feedback_mail'];
         $subject_mail = "Новая заявка на обратную связь: " . $subject;
         $body = "Имя: $name\nЭлектронная почта: $email\nТема: $subject\nСообщение:\n$message_content";
-        $headers = "From: $email";
+        $headers = "From: " . mb_encode_mimeheader($email, "UTF-8") . "\r\n";
         $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-    
+
+        // Конвертируем содержание письма в UTF-8
+        $subject_mail = mb_convert_encoding($subject_mail, "UTF-8");
+        $body = mb_convert_encoding($body, "UTF-8");
+
         if (mail($to, $subject_mail, $body, $headers)) {
             $message = "Thank you for your request!<br>We appreciate your interest in our services.";
             echo '
@@ -81,7 +85,7 @@
                 </div>
             ';
         }
-    
+
         // JavaScript для обратного отсчета и переадресации
         echo '
             <script>
@@ -96,7 +100,7 @@
                         window.location.href = window.location.href; // Переадресация на текущую страницу
                     }
                 }
-    
+
                 // Запускаем обратный отсчет при загрузке страницы
                 document.addEventListener("DOMContentLoaded", function() {
                     setTimeout(countdown, 500); // Начинаем обратный отсчет через 0.5 секунд
