@@ -54,6 +54,7 @@
         $subject_mail = "Новая заявка на обратную связь: " . $subject;
         $body = "Имя: $name\nЭлектронная почта: $email\nТема: $subject\nСообщение:\n$message_content";
         $headers = "From: $email";
+        $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
     
         if (mail($to, $subject_mail, $body, $headers)) {
             $message = "Thank you for your request!<br>We appreciate your interest in our services.";
