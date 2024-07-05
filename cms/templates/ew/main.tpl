@@ -357,50 +357,6 @@
                 </div>
             </section>
             <!-- services-area-end -->
-
-            <!-- testimonial-area -->
-            <!-- <section class="testimonial-area pt-140 pb-120" id="testimonialArea">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-12">
-                            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-                            <div class="elfsight-app-2b42ee88-e6f7-49ad-bd63-e801fa7f6996" data-elfsight-app-lazy></div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- testimonial-area-end -->
-
-            <!-- newsletter-area -->
-            <section class="newsletter-area jarallax newsletter-bg" data-background="{$theme}/assets/img/bg/newsletter_bg.jpg">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-5">
-                            <div class="newsletter-content">
-                                <div class="section-title white-title-two tg-heading-subheading animation-style3">
-                                    <span class="sub-title tg-element-title">Our Contact From</span>
-                                    <h2 class="title tg-element-title">Need Repair & Construction?</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-7">
-                            <div class="newsletter-form">
-                                <form action="#">
-                                    <div class="form-grp">
-                                        <input type="text" placeholder="Name*">
-                                    </div>
-                                    <div class="form-grp">
-                                        <input type="text" placeholder="Phone*">
-                                    </div>
-                                    <button type="submit" class="btn btn-two">Submit Now</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- newsletter-area-end -->
-
         </main>
         <!-- mian-area-end -->
 
@@ -411,31 +367,31 @@
                     <div class="container">
                         <div class="footer-logo-area">
                             <div class="row align-items-center">
-                                <div class="col-xl-3 col-lg-3 col-md-12">
+                                <div class="col-xl-4 col-lg-4 col-md-12">
                                     <div class="logo">
                                         <a href="#"><img src="{$theme}/assets/img/logo/logo.png" alt=""></a>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="col-xl-4 col-lg-4 col-md-12">
                                     <div class="footer-contact">
                                         <div class="icon">
                                             <i class="fas fa-phone-alt"></i>
                                         </div>
                                         <div class="content">
                                             <span>Phone Number:</span>
-                                            <a href="tel:+12153036333">+1(215)281-6949</a>
+                                            <a href="tel:+12153036333">+1(609)540-3247</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-5 col-lg-5 col-md-6">
-                                    <div class="footer-social">
-                                        <h2 class="title">Follow Us:</h2>
-                                        <ul class="list-wrap">
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                        </ul>
+                                <div class="col-xl-4 col-lg-4 col-md-12">
+                                    <div class="footer-contact">
+                                        <div class="icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div class="content">
+                                            <span>Phone Number:</span>
+                                            <a href="tel:+12153036333">+1(267)699-8739</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -447,7 +403,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="copyright-text">
-                                    <p>© Copyright 2023. All Right Reserved</p>
+                                    <p>Exterior.Works © Copyright 2023. All Right Reserved</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
