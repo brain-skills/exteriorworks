@@ -39,7 +39,7 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $subject = $_POST['subject'];
-        $ip = $externalIp;
+        $ip = $userIp;
         $city = $location['city'];
         $message_content = $_POST['message'];
 
