@@ -11,21 +11,20 @@
     =====================================================
     */
 
-    // Функция для получения внешнего IP-адреса
-    function getExternalIp() {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.ipify.org?format=json");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        
-        $data = json_decode($response);
-        return $data->ip;
+    // Функция для получения внешнего IP-адреса пользователя
+    function getUserIp() {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
     }
-
-    // Получите внешний IP-адрес
-    $externalIp = getExternalIp();
-    $smarty->assign('externalIp', $externalIp);
+    // Получите IP-адрес пользователя
+    $userIp = getUserIp();
+    $smarty->assign('externalIp', $userIp);
 
     // Функция для получения данных о местоположении
     function getLocation($ip) {
@@ -40,6 +39,6 @@
         return json_decode($response, true);
     }
 
-    // Получите данные о местоположении
-    $location = getLocation($externalIp);
+    // Получите данные о местоположении пользователя
+    $location = getLocation($userIp);
     $smarty->assign('city', $location['city']);

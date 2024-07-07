@@ -36,7 +36,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="pb-3" colspan="8"><pre>Текст: {$order.message}</pre></td>
+					<td class="pb-3" colspan="9"><pre>Текст: {$order.message}</pre></td>
 				</tr>
 			{/foreach}
 		</tbody>

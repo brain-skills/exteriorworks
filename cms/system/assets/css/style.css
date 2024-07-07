@@ -3687,7 +3687,7 @@ input[type="number"] {
 }
 pre {
   display: block;
-  background: #222;
+  background: var(--body-color);
   padding: 5px 10px;
   border-radius: 4px;
   white-space: normal;
