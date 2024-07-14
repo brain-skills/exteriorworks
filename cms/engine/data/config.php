@@ -4,7 +4,7 @@
   'title' => 'Exterior Works Inc - High work quality is guaranteed',
   'stheme' => '/system/assets',
   'theme' => '/templates/ew',
-  'generator' => 'Skills Energy',
+  'generator' => 'Skills Energy - https://skills.energy/',
   'description' => 'Transform your home with expert roofing, siding, and gutter services. Trust us for quality repairs and replacements that enhance your property\'s durability and curb appeal.',
   'keywords' => 'roofing repair, siding replacement, gutter installation, home exterior renovation, roofing services, siding repair, gutter maintenance, residential roofing solutions',
   'charset' => '<meta charset="utf-8">',

@@ -11,7 +11,9 @@
     =====================================================
     */
 
-    session_start();
+    if(session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     
     // Удаляем все переменные сессии
     $_SESSION = array();

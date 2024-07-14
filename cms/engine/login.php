@@ -28,7 +28,9 @@
     }
 
     // Стартуем сессию
-    session_start();
+    if(session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Получение пути к аватарке
     $avatar = ''; // Изначально устанавливаем пустую строку

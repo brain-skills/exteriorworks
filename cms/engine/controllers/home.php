@@ -56,10 +56,10 @@
 
         $homepage = 'Главная страница';
         // Устанавливаем массив переменных в Smarty
-        $smarty->assign('title', 'Главная страница - Skills Engine');
+        $smarty->assign('title', $config['title']);
         $smarty->assign('homepage', $homepage);
         $smarty->assign('page_name', '
-            <li class="breadcrumb-item active">Главная страница</li>
+            <li class="breadcrumb-item active">' . $config['title'] . '</li>
         ');
         $smarty->assign('theme', TEMPLATES_DIR . '/' . $config['skin']);
         // Передаем данные в Smarty

@@ -20,7 +20,9 @@
 
     // Создаем экземпляр Smarty
     $smarty = new Smarty();
-    session_start();
+    if(session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     
     // Запрос к базе данных для получения пользователя по email
     $query = "SELECT users.*, groups.name AS group_name FROM users LEFT JOIN `groups` ON users.group = groups.id WHERE email = ? LIMIT 1";

@@ -1,6 +1,4 @@
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>{$title}</title>
     {$charset}
     <meta name="generator" content="{$generator}">
@@ -42,4 +40,21 @@
 	<link rel="stylesheet" href="{$theme}/assets/css/jarallax.css">
 	<link rel="stylesheet" href="{$theme}/assets/css/style.css">
 	<link rel="stylesheet" href="{$theme}/assets/css/responsive.css">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16574533557"></script>
+	{literal}
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'AW-16574533557');
+		</script>
+	{/literal}
+	<!-- Event snippet for Покупка conversion page -->
+	<script>
+		gtag('event', 'conversion', {
+			'send_to': 'AW-16574533557/an1FCP3X1MIZELWfrd89',
+			'transaction_id': ''
+		});
+	</script>
 </head>

@@ -93,7 +93,6 @@
 											<option value="{htmlspecialchars($config['cms_lang'])}" selected hidden>{htmlspecialchars($config['cms_lang'])}</option>
 											<option value="Русский">Русский</option>
 											<option value="English">English</option>
-											<option value="ქართული">ქართული</option>
 										</select>
 										<div class="form-icon position-absolute">
 											<img src="{$stheme}/images/svg/option.svg" alt="">
