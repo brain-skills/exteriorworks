@@ -80,7 +80,9 @@
             'rsssettings'  => 'RSS Settings',
             'policytermscookies'  => 'Policy / Terms / Cookies',
 
-            'license'  => 'Unactivated version of CMS Skills Energy',
+            'licensekey'  => 'License key',
+            'licensed'  => 'Activated version of CMS',
+            'unlicensed'  => 'Unactivated version of CMS',
         ),
         'rsbar' => array(
             'title'  => 'Sidebar',

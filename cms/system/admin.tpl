@@ -571,7 +571,7 @@
 						</ul>
 						<div class="bg-gradient rounded-3 p-4 text-white promo">
 							<button class="btn btn-sm w-100 btn-dark" onclick="openModal('license')">
-								{$lang.nav.license}
+								{$lang.nav.licensed}
 							</button>
 						</div>
 					</div>
@@ -887,20 +887,17 @@
 			<div class="card">
 				<div class="card-body rounded-1" style="border: 1px solid var(--theme-color1)">
 					<div>
-						<a href="https://skills.energy/se_buy" class="btn btn-sm btn-warning py-0 mb-3 float-end" target="_blank">Получить лицензию</a>
-						<h4>Неактивированная версия CMS Skills Energy</h4>
+						<h4>{$lang.nav.licensed}</h4>
 					</div>
-					<p>Вы используете неактивированную версию <b>CMS Skills Energy</b>. Для снятия ограничений введите ключ активации. Активация применяется только к указанному домену, где будет постоянно использоваться лицензия. Не активируйте CMS на тестовых сайтах. Процесс активации осуществляется в личном кабинете на нашем сайте, по адресу <a href="https://skills.energy/profile">https://skills.energy/profile</a>.</p>
+					<p class="mb-0">{$lang.nav.licensekey}:</p>
 					<fieldset class="form-icon-group left-icon position-relative">
 						<div class="col-12 btn-group mb-3">
-							<input type="text" class="form-control rounded-0" id="license_key" placeholder="Введите ключ для активации лицензии" style="border-color: var(--theme-color1)">
+							<input type="text" class="form-control rounded-0" id="license_key" value="{$config.license}" style="border-color: var(--theme-color1)">
 							<div class="form-icon position-absolute">
 								<img src="{$stheme}/images/svg/lock-key.svg" alt="">
 							</div>
-							<button type="button" class="btn btn-success">Активировать</button>
 						</div>
 					</fieldset>
-					<p class="fs-6 mb-0">Лицензионный ключ должен иметь формат: <span class="text-danger">XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</span></p>
 				</div>
 			</div>
 		</div>

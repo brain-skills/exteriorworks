@@ -1,6 +1,7 @@
 <?php $config = array (
   'version_id' => 'https://github.com/brain-skills/se-cms',
   'cms_installed' => true,
+  'license' => 'A1B2C-D3E4F-G5H6I-J7K8L-M9N0O',
   'title' => 'Exterior Works Inc - High work quality is guaranteed',
   'stheme' => '/system/assets',
   'theme' => '/templates/ew',
