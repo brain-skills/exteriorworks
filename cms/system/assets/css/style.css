@@ -2279,7 +2279,7 @@ main .page-body {
     scrollbar-color: var(--card-color) var(--card-color);
     scrollbar-width: inherit;
     height: calc(100vh - 145px);
-    background: var(--body-color);
+    background: var(--bs-body-bg);
     color: var(--bs-body-color);
   }
   main .page-body::-webkit-scrollbar {

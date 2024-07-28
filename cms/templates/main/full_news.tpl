@@ -13,8 +13,8 @@
         <p><span class="text-muted">Просмотров:</span> {$news.views} | <span class="text-muted">Рейтинг:</span> {$news.rating} | <span class="text-muted">Теги:</span> {$news.tags}</p>
     </div>
     <div class="col-12 mt-2">
-        <div class="bg-dark text-light px-2 mb-3">{$news.short_desc}</div>
-        <div class="bg-dark text-light px-2 mb-3">{$news.full_desc}</div>
+        <pre class="px-2 mb-3">{$news.short_desc}</pre>
+        <pre class="px-2 mb-3">{$news.full_desc}</pre>
     </div>
     <div class="col-12 mt-3">
         <h5>Комментарии:</h5>
