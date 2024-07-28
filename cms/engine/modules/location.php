@@ -22,23 +22,43 @@
         }
         return $ip;
     }
+
+    // Функция для проверки, является ли IP-адрес локальным
+    function isLocalIp($ip) {
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+            return true;
+        }
+        return false;
+    }
+
     // Получите IP-адрес пользователя
     $userIp = getUserIp();
     $smarty->assign('externalIp', $userIp);
 
-    // Функция для получения данных о местоположении
-    function getLocation($ip) {
-        $url = "http://ip-api.com/json/{$ip}";
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        
-        return json_decode($response, true);
-    }
+    // Проверьте, является ли IP-адрес локальным
+    if (isLocalIp($userIp)) {
+        $smarty->assign('city', 'локальный сервер');
+    } else {
+        // Функция для получения данных о местоположении
+        function getLocation($ip) {
+            $url = "http://ip-api.com/json/{$ip}";
+            
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            
+            return json_decode($response, true);
+        }
 
-    // Получите данные о местоположении пользователя
-    $location = getLocation($userIp);
-    $smarty->assign('city', $location['city']);
+        // Получите данные о местоположении пользователя
+        $location = getLocation($userIp);
+
+        // Проверьте, что данные о местоположении были получены корректно
+        if (isset($location['city'])) {
+            $smarty->assign('city', $location['city']);
+        } else {
+            $smarty->assign('city', 'город не определен');
+        }
+    }
